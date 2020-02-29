@@ -25,31 +25,31 @@ class Response(db.Model):
 
     @property
     def candidate_title(self):
-        if application_form.nominations:
-            return nomination_title
+        if self.application_form.nominations:
+            return self.nomination_title
         else:
-            return user.user_title
+            return self.user.user_title
     
     @property
     def candidate_firstname(self):
-        if application_form.nominations:
-            return nomination_firstname
+        if self.application_form.nominations:
+            return self.nomination_firstname
         else:
-            return user.firstname
+            return self.user.firstname
         
     @property
     def candidate_lastname(self):
-        if application_form.nominations:
-            return nomination_lastname
+        if self.application_form.nominations:
+            return self.nomination_lastname
         else:
-            return user.lastname
+            return self.user.lastname
     
     @property
     def candidate_email(self):
-        if applicaiton_form.nominations:
-            return nomination_email
+        if self.application_form.nominations:
+            return self.nomination_email
         else:
-            return user.email
+            return self.user.email
 
     def __init__(self, application_form_id, user_id, is_submitted = False, submitted_timestamp = None, is_withdrawn = False, withdrawn_timestamp = None):
         self.application_form_id = application_form_id
